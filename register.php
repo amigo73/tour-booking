@@ -62,7 +62,7 @@
 									</div>
 									<div class="form-group">
 										<label for="reg_email" class="sr-only">Email</label>
-										<input type="text" class="form-control" id="email" name="email" placeholder="email" required>
+										<input type="email" class="form-control" id="email" name="email" placeholder="email" required>
 									</div>
 									<div class="form-group">
 										<label for="reg_contact_number" class="sr-only">Contact Number</label>
@@ -84,7 +84,7 @@
 									<div class="form-group login-group-checkbox">
 										<input type="radio" class="" name="role" id="guest" value="U" required>
 										<label for="guest">guest</label>
-										<input type="radio" class="" name="role" id="guide" value="G" required>
+										<input type="radio" name="role" id="guide" value="G" required>
 										<label for="guide">guide</label>
 									</div>
 
@@ -101,8 +101,8 @@
 						</div>
 
 						<div class="etc-login-form mt-2">
-							<p>already have an account? <a href="login.html">login here</a></p>
-							<p>About Us <a href="index.html">Home Page</a></p>
+							<p>already have an account? <a href="login.php">login here</a></p>
+							<p>About Us <a href="index.php">Home Page</a></p>
 						</div>
 				</form>
 				<!-- end:Main Form -->

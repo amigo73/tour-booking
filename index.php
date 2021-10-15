@@ -123,7 +123,7 @@
   <div id="f">
     <div class="container">
       <div class="row">
-        <h3><a href="login.html">LOGIN</a></h3>
+        <h3><a href="login.php">LOGIN</a></h3>
   <section id="register" name="register"></section>
         <h3><a href="register.php">REGISTER</a></h3>
         <p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>

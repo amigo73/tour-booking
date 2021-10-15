@@ -73,7 +73,51 @@
             header("Location:../register.php");
         }
       }
-  
+      
+      
+      public function login($username,$password)
+      {
+        $sql = "SELECT accounts.account_id, username, password, role, user_id, fullname, contact_number, address, email, gender FROM accounts INNER JOIN users ON accounts.account_id = users.account_id WHERE username = '$username'";
+        
+        $result = $this->conn->query($sql);
+
+        if($result && $result->num_rows==1)
+        {
+          $user = $result->fetch_assoc();
+
+            if (password_verify($password,$user["password"]))
+            {
+              $_SESSION["account_id"] = $user["account_id"];
+              $_SESSION["fullname"] = $user["fullname"];
+              $_SESSION["role"] = $user["role"];
+
+              if($user["role"]=="A")
+              {
+                header("Location:../dashboard.php");
+              }
+              elseif($user["role"]=="U")
+              {
+                header("Location:../profile.php");
+              }
+              elseif($user["role"]=="G")
+              {
+                header("Location:../guide_profile.php");
+              }
+          }
+          else
+          {
+            $_SESSION["success"] = 0;
+            $_SESSION["message"] = "Incorrect password";
+            header("Location:../login.php");
+          }
+        }
+        else
+        {
+          $_SESSION["success"] = 0;
+          $_SESSION["message"] = "Incorrect username";
+          header("Location:../login.php");
+        }
+      }
 
   }
 

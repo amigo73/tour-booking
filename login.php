@@ -1,3 +1,19 @@
+<?php
+  session_start();
+
+  if(isset($_SESSION["role"]) && $_SESSION["role"]== "A")
+  {
+    header("Location:dashboard.php");
+  }
+  elseif(isset($_SESSION["role"]) && $_SESSION["role"]== "U")
+  {
+    header("Location:profile.php");
+  }
+  elseif(isset($_SESSION["role"]) && $_SESSION["role"]== "G")
+  {
+    header("Location:guide_profile.php");
+  }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,36 +29,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   </head>
   <body class="container bg-dark text-white">
+    <?php
+        if(isset($_SESSION["success"]) && isset($_SESSION["message"]))
+        {
+          $class = ($_SESSION["success"]==1)?"success":"ddanger";
+          $message = $_SESSION["message"];
+
+          unset($_SESSION["success"]);
+          unset($_SESSION["message"]);
+        
+    ?>
+        <div class="alert alert-<?php echo $class;?>" role="alert">
+            <?php echo $message;?>
+        </div>
+    <?php
+        }
+    ?>
     <!-- LOGIN FORM -->
       <div class="text-center" style="padding:50px 0">
         <div class="logo display-4">login</div>
         <!-- Main Form -->
         <div class="login-form-1 w-50 mx-auto">
-          <form id="login-form" class="text-left">
+          <form id="login-form" class="text-left" action="action/login_action.php" method="POST">
             <div class="login-form-main-message"></div>
             <div class="main-login-form">
               <div class="login-group">
                 <div class="form-group">
                   <label for="lg_username" class="sr-only">Username</label>
-                  <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
                 </div>
                 <div class="form-group">
                   <label for="lg_password" class="sr-only">Password</label>
-                  <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
                 </div>
                 <div class="form-group login-group-checkbox mt-3">
-                  <input type="radio" class="" name="reg_role" id="guest">
+                  <input type="radio" name="role" id="guest" value="U" requrired>
                   <label for="guest">guest</label>
                   
-                  <input type="radio" class="" name="reg_role" id="guide">
+                  <input type="radio" name="role" id="guide" value="G" required>
                   <label for="guide">guide</label>
                 </div>
               </div>
-              <button type="submit" class="login-button btn btn-outline-secondary mt-3" name="submit"><i class="fa fa-chevron-right"><a href="booking.html">SUBMIT</a> </i></button>
+              <input type="submit" class="btn btn-outline-secondary mt-3" name="submit" value="submit">
+							
             </div>
             <div class="etc-login-form mt-2">
-              <p>new user? <a href="register.html">create new account</a></p>
-              <p>About Us <a href="index.html">Home Page</a></p>
+              <p>new user? <a href="register.php">create new account</a></p>
+              <p>About Us <a href="index.php">Home Page</a></p>
             </div>
           </form>
         </div>

@@ -1,18 +1,33 @@
 <?php
-  session_start();
+  include 'class/user_class.php';
 
-  if(isset($_SESSION["role"]) && $_SESSION["role"]== "A")
+  if( !isset($_SESSION["account_id"]))
   {
-    header("Location:dashboard.php");
+    header("Location:login.php");
   }
-  elseif(isset($_SESSION["role"]) && $_SESSION["role"]== "U")
-  {
-    header("Location:profile.php");
-  }
-  elseif(isset($_SESSION["role"]) && $_SESSION["role"]== "G")
-  {
-    header("Location:guide_profile.php");
-  }
+
+  $user = new User($_SESSION["account_id"]);
+
+  $account_id = $user->getAccountID();
+  $fullname = $user->getFullName();
+  $username = $user->getUserName();
+
+
+
+  // session_start();
+
+  // if(isset($_SESSION["role"]) && $_SESSION["role"]== "A")
+  // {
+  //   header("Location:dashboard.php");
+  // }
+  // elseif(isset($_SESSION["role"]) && $_SESSION["role"]== "U")
+  // {
+  //   header("Location:profile.php");
+  // }
+  // elseif(isset($_SESSION["role"]) && $_SESSION["role"]== "G")
+  // {
+  //   header("Location:guide_profile.php");
+  // }
 ?>
 <!doctype html>
 <html lang="en">
@@ -28,25 +43,8 @@
   <body>
       
     <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-    <?php
-			if(isset($_SESSION["success"]) && isset($_SESSION["message"]))
-			{
-				//input
-				$class = ($_SESSION["success"]==1)?"success":"danger";
-				$message = $_SESSION["message"];
-
-				unset($_SESSION["success"]);
-				unset($_SESSION["message"]);
-	
-		?>
-				<div class="alert alert-<?php echo $class;?>" role="alert">
-					<?php echo $message;?>
-				</div>
-		<?php
-				}
-		?> 
       <div class="card p-4">
-          <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span class="name mt-3">Eleanor Pena</span> <span class="idd">@eleanorpena</span>
+          <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span class="name mt-3"><?php echo "$fullname";?></span> <span class="idd">@<?php echo $username;?></span>
               <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Book</button> </div>
               <div class="text mt-3"> Current Reservation </div>
               <div class="text mt-3"> Past Reservation </div>

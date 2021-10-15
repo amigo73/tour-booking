@@ -1,0 +1,19 @@
+   profile.php
+   line 43
+   <?php 
+			if(isset($_SESSION["success"]) && isset($_SESSION["message"]))
+			{
+				//input
+				$class = ($_SESSION["success"]==1)?"success":"danger";
+				$message = $_SESSION["message"];
+
+				unset($_SESSION["success"]);
+				unset($_SESSION["message"]);
+	
+		?>
+				<div class="alert alert-<?php echo $class;?>" role="alert">
+					<?php echo $message;?>
+				</div>
+		<?php
+				}
+		?> 
