@@ -9,7 +9,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Profile</title>
+    <title>Guide-Profile</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -49,22 +49,25 @@
     <?php
         }
     ?>
+      
     <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
       <div class="card p-4">
           <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span class="name mt-3"><?php echo "$fullname";?></span> <span class="idd">@<?php echo $username;?></span>
-              <div class=" d-flex mt-2"> <a href="packages.php"><button class="btn1 btn-dark">Packages</button></a> </div>
-                <p>Current Reservation </p> 
+              <div class=" d-flex mt-2"><a href="guide_packages.php"><button class="btn1 btn-dark">Work</button></a></div>
+              <div class="text mt-3 text-center"> 
+                <P>Current Reservation </P>
                 <?php
-                $user->displayBooking(NULL, $_SESSION["account_id"]); 
-              ?>
-              <div class="text mt-3 text-center"> Past Reservation </div>             
+                    $user->displayBooking(NULL, $_SESSION["account_id"]); 
+                ?>
+              </div>
+              <div class="text mt-3 text-center"> Past Reservation </div>
               <div class=" px-2 rounded mt-4 date "> 
-                <span class="join text-dark">
-                <?php
+                <span class="join text-dark"> 
+                  <?php
                   date_default_timezone_set('Asia/Tokyo');
                   $today = date("Y-m-d H:i:s");
                   echo($today);
-                ?>
+                  ?>
                 </span> 
               </div>
           </div>
@@ -75,4 +78,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   </body>
 </html>
-

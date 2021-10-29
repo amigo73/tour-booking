@@ -17,3 +17,71 @@
 		<?php
 				}
 		?> 
+
+
+		packages.php
+		  <!-- Content section -->
+        <!-- <section class="py-5" id="book">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <form id="booking-form" class="text-left w-50 mx-auto">
+                            <div class="login-form-main-message"></div>
+                            <div class="main-login-form">
+                                <div class="login-group">
+                                    <div class="form-group">
+                                        <label for="reg_username" class="sr-only">Username</label>
+                                        <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
+                                    </div>    
+                                    <div class="form-group">
+                                        <label for="reg_email" class="sr-only">Email</label>
+                                        <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
+                                    </div>
+                                     <div class="form-group login-group-checkbox">
+                                        <input type="checkbox" class="" id="reg_agree" name="reg_agree">
+                                        <label for="reg_agree">i agree with <a href="#">terms</a></label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="login-button btn btn-outline-secondary mt-3 w-100" name="register"><i class="fa fa-chevron-right">BOOK</i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+        <h3>Place</h3>
+        <p><?php echo "$place";?></p>
+         <h3>Discription</h3>
+         <p><?php echo "$discription";?></p>	
+         <h3>Price</h3>
+      <p><?php echo "$price";?> pesos</p>
+     <h3>Period</h3>
+     <p>Good for 2 days</p>
+
+
+     public function booking($fullname,$date)
+      {
+        $sql = "INSERT INTO bookings(package_id,date,status,amount_due,user_id) VALUES('$package_id','$date','$status','$amount_due',$user_id')";
+
+
+        if($this->conn->query($sql))
+          {
+            $_SESSION["package_id"] = $bookings["package_id"];
+            $_SESSION["date"] = $bookings["date"];
+            $_SESSION["status"] = $bookings["status"];
+            $_SESSION["amount_due"] = $bookings["amount_id"];
+            $_SESSION["user_id"] = $bookings["user_id"];
+
+            $_SESSION["success"] = 1;
+            $_SESSION["message"] = "Booking Successful.";
+            header("Location:../profile.php");
+          }
+          else
+          {
+            $_SESSION["success"] = 0;
+            $_SESSION["message"] ="Booking Failed. Kindly try again.";
+            header("Location:../booking.php");
+          }
+      }

@@ -1,18 +1,8 @@
 <?php
-  session_start();
+  include 'class/user_class.php';
 
-  if(isset($_SESSION["role"]) && $_SESSION["role"]== "A")
-  {
-    header("Location:dashboard.php");
-  }
-  elseif(isset($_SESSION["role"]) && $_SESSION["role"]== "U")
-  {
-    header("Location:profile.php");
-  }
-  elseif(isset($_SESSION["role"]) && $_SESSION["role"]== "G")
-  {
-    header("Location:guide_profile.php");
-  }
+  // $fullname = $_SESSION["fullname"];
+  
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,7 +22,7 @@
     <?php
         if(isset($_SESSION["success"]) && isset($_SESSION["message"]))
         {
-          $class = ($_SESSION["success"]==1)?"success":"ddanger";
+          $class = ($_SESSION["success"]==1)?"success":"danger";
           $message = $_SESSION["message"];
 
           unset($_SESSION["success"]);
@@ -61,13 +51,6 @@
                 <div class="form-group">
                   <label for="lg_password" class="sr-only">Password</label>
                   <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
-                </div>
-                <div class="form-group login-group-checkbox mt-3">
-                  <input type="radio" name="role" id="guest" value="U" requrired>
-                  <label for="guest">guest</label>
-                  
-                  <input type="radio" name="role" id="guide" value="G" required>
-                  <label for="guide">guide</label>
                 </div>
               </div>
               <input type="submit" class="btn btn-outline-secondary mt-3" name="submit" value="submit">

@@ -39,13 +39,12 @@
   <!-- Menu -->
   <nav class="menu" id="theMenu">
     <div class="menu-wrap">
-      <h1 class="logo"><a href="index.html#home">TOP</a></h1>
+      <h1 class="logo"><a href="#top">TOP</a></h1>
       <i class="fa fa-times-circle menu-close"></i>
       <a href="#home" class="smoothscroll">Home</a>
-      <a href="#login" class="smoothscroll">Login</a>
-      <a href="#register" class="smoothscroll">Register</a>
+      <a href="login.php">Login</a>
+      <a href="register.php">Register</a>
       <a href="#about" class="smoothscroll">About</a>
-      <a href="#photos" class="smoothscroll">Photos</a>
       <a href="#contact" class="smoothscroll">Contact</a>
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-youtube"></i></a>
@@ -84,10 +83,10 @@
   <div id="f">
     <div class="container">
       <div class="row centered">
-        <h3>Packages</h3>
+        <h3>PHOTOS</h3>
         <p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
 
-        <div class="col-lg-6 col-lg-offset-3">
+        <div class="col-lg-12">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
@@ -117,6 +116,7 @@
     <!-- container -->
   </div>
   <!-- f -->
+  
 
   <!-- ========== LOGIN REGISTER SECTION ========== -->
   <section id="login" name="login"></section>
@@ -187,16 +187,15 @@
             <div class="error-message"></div>
             <div class="sent-message">Your message has been sent. Thank you!</div>
 
-            <div class="form-send">
+            <div class="form-send mb-5">
               <button type="submit" class="btn btn-large">Send Message</button>
             </div>
-
           </form>
-
         </div>
       </div>
-    </div>
-  
+    </div>  
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53810.12855092864!2d123.90437410593871!3d10.302953650279003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999258dcd2dfd%3A0x4c34030cdbd33507!2z44OV44Kj44Oq44OU44OzIOOCu-ODlg!5e0!3m2!1sja!2sjp!4v1635414472707!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="mt-5"></iframe>
 
   <div id="copyrights">
     <div class="container">
